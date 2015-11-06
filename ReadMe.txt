@@ -50,13 +50,13 @@ MusicCube demonstrates use of the OpenAL framework for positional audio, and as 
 ===========================================================================
 BUILD REQUIREMENTS:
 
-iPhone SDK 3.1 and later
+iOS 4.0 SDK
 
 
 ===========================================================================
 RUNTIME REQUIREMENTS:
 
-iPhone OS 3.1 and later
+iPhone OS 3.2 or later
 
 
 ===========================================================================
@@ -85,9 +85,12 @@ The MusicCubeAppDelegate class defines the application delegate object.
 ================================================================================
 CHANGES FROM PREVIOUS VERSIONS:
 
+Version 1.2
+Upgraded project to build with the iOS 4.0 SDK.
+
 Version 1.1
 Updated for iPhone OS 3.1. Use CADisplayLink as the preferred method for controlling animation timing, and fall back to NSTimer when running on a pre 3.1 device where CADisplayLink is not available.
 
 
 ================================================================================
-Copyright (C) 2009 Apple Inc. All rights reserved.
+Copyright (C) 2009-2010 Apple Inc. All rights reserved.
