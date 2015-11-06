@@ -4,7 +4,7 @@
  
  Abstract: App delegate. Ties everything together.
  
- Version: 1.0
+ Version: 1.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by
  Apple Inc. ("Apple") in consideration of your agreement to the
@@ -57,27 +57,32 @@
 @synthesize glView;
 @synthesize alPlayback;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-    
-	glView.animationInterval = 1.0 / 60.0;
+- (void)applicationDidFinishLaunching:(UIApplication *)application
+{    
 	[glView startAnimation];
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-	glView.animationInterval = 1.0 / 5.0;
+- (void) applicationWillResignActive:(UIApplication *)application
+{
+	[glView stopAnimation];
 }
 
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-	glView.animationInterval = 1.0 / 60.0;
+- (void) applicationDidBecomeActive:(UIApplication *)application
+{
+	[glView startAnimation];
 }
 
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+	[glView stopAnimation];
+}
 
-- (void)dealloc {
+- (void)dealloc
+{
 	[window release];
 	[glView release];
 	[alPlayback release];
+	
 	[super dealloc];
 }
 

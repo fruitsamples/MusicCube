@@ -6,7 +6,7 @@
  It provides start/stop of playback, and spatial positioning for the 
  listener and a single sound source.
  
- Version: 1.0
+ Version: 1.1
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by
  Apple Inc. ("Apple") in consideration of your agreement to the
@@ -78,7 +78,7 @@ void interruptionListener(	void *	inClientData,
 	else if (inInterruptionState == kAudioSessionEndInterruption)
 	{
 		OSStatus result = AudioSessionSetActive(true);
-		if (result) printf("Error setting audio session active! %d\n", result);
+		if (result) printf("Error setting audio session active! %d\n", (int)result);
 		[THIS initOpenAL];
 		if (THIS->_wasInterrupted)
 		{
@@ -97,14 +97,14 @@ void interruptionListener(	void *	inClientData,
 		
 		// setup our audio session
 		OSStatus result = AudioSessionInitialize(NULL, NULL, interruptionListener, self);
-		if (result) printf("Error initializing audio session! %d\n", result);
+		if (result) printf("Error initializing audio session! %d\n", (int)result);
 		else {
 			UInt32 category = kAudioSessionCategory_AmbientSound;
 			result = AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
-			if (result) printf("Error setting audio session category! %d\n", result);
+			if (result) printf("Error setting audio session category! %d\n", (int)result);
 			else {
 				result = AudioSessionSetActive(true);
-				if (result) printf("Error setting audio session active! %d\n", result);
+				if (result) printf("Error setting audio session active! %d\n", (int)result);
 			}
 		}
 		
